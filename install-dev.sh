@@ -6,10 +6,9 @@ sudo apt update;
 sudo apt install -y git;
 sudo apt install -y discord;
 sudo apt install -y code;
-sudo apt install -y steam;
 
 # installing nodejs
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash;
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash;
 source "$HOME/.nvm/nvm.sh";
 sudo apt update;
 nvm install node;
@@ -20,34 +19,13 @@ sudo apt install -y gems;
 sudo apt install libyaml-dev;
 gem install rails;
 
-# installing Rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh;
-source "$HOME/.cargo/env";
+# installing java
+sudo apt install openjdk-17-jre
+sudo apt install openjdk-17-jdk
+export JAVA_HOME=/usr/local/openjdk-17
+export PATH=$JAVA_HOME/bin:$PATH
 
-# installing Golang
-sudo apt -y install golang-go;
-
-# installing MySQL and postgreSQL
-sudo apt install -y mysql-server;
+# installing postgreSQL
 sudo apt install -y postgresql postgresql-contrib;
-
-# installing DBeaver
-echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list;
-wget -O - https://dbeaver.io/debs/dbeaver.gpg.key | sudo apt-key add -;
-sudo apt update;
-sudo apt install dbeaver-ce;
-
-# installing Insomnia
-echo "deb [trusted=yes arch=amd64] https://download.konghq.com/insomnia-ubuntu/ default all" \ | sudo tee -a /etc/apt/sources.list.d/insomnia.list;
-sudo apt install -y insomnia;
-
-#installing Docker
-sudo apt install -y curl apt-transport-https ca-certificates software-properties-common;
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -;
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable";
-sudo apt update;
-apt-cache policy docker-ce;
-sudo apt install -y docker-ce;
-sudo systemctl status docker;
 
 sudo apt remove --purge libreoffice*;
